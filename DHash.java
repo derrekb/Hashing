@@ -46,6 +46,8 @@ public class DHash<K, E> extends AHash<K,E> {
 		* && !done ==> res == -1
 		* && j in [0..n-1]
 		* && [i%N..(j-1)%N] is processed
+		* if collision occurs:
+		* [hp%N..(j-1)%N] is processed
 		* && -1 <= res <= n-1
 		*/
 		while (!done){ 
