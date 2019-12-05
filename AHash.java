@@ -5,7 +5,7 @@ package Olatunde_Emmanuel_Beeck_Derrek_Bland_Elijah_Navas_Edwin;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-public abstract class AHash<K,E> implements IDictionary<K,E> {
+public abstract class AHash<K,E> implements IAHash<K,E> {
 
 	protected int collisions = 0;
 	private Item<K, E> AVAILABLE = new Item<K, E>(null, null); 
@@ -33,19 +33,23 @@ public abstract class AHash<K,E> implements IDictionary<K,E> {
 			collisions = 0;		}
 		
 		//Auxiliary methods
-			
+	//Purpose: To determine if is available (key && element == null)		
 	protected boolean available(int i){ 
 		return(A.get(i) == AVAILABLE); 		}
 	
+	//Purpose: To determine if empty
 	protected boolean empty(int i){
 		return(A.get(i) == null);		}
 	
+	//Purpose: To get the key value
 	protected K key(int i){
 		return(A.get(i).getKey());		}
 	
+	//Purpose: To get the element value
 	protected E elem(int i){
 		return(A.get(i).getElem());	}
 	
+	//Purpose: returns the index of the given key or -1 if there is no such key
 	protected abstract int find(K k);
 	
 	public int collisions() {return collisions;}
