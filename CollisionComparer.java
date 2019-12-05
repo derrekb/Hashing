@@ -1,10 +1,13 @@
 package Olatunde_Emmanuel_Beeck_Derrek_Bland_Elijah_Navas_Edwin;
 /**
  * Class for Collision Comparer
+ * Purpose: To compare the number of collisions produced when running Linear Probing
+ * 			and double Hashing
   */
 import java.util.Random;
 public class CollisionComparer{
 		
+	//Purpose: To insert random strings into the Hash Table
 	public static void keyinserter(AHash<String,String> X, AHash<String, String> Y,int n) {
 		Random r = new Random();
         int i = 0;
@@ -16,6 +19,7 @@ public class CollisionComparer{
             Y.insert(rand, "element");
             i++;     }  }
 	
+	//Purpose: Console Print-out Formatting.
 	public static String createLine(int item, String oldString) {
 		return(oldString + String.format("%10d", item));
 	}
@@ -23,8 +27,8 @@ public class CollisionComparer{
 		
 		HashComparator<String> scomp = new StringComparator();
 		String Item = String.format("%-12s", "# of Items: ");
-		String Linear = String.format("%-12s", "Linear: ");
-		String Double = String.format("%-12s", "Double: ");
+		String Linear = String.format("%-12s", "\n"+"LinearProbing"+"\n"+"Collisions: ");
+		String Double = String.format("%-12s", "\n"+"DoubleHashing"+"\n"+"Collisions: ");
 		
 		for(int i = 1000; i <=10000; i+=1000) {
 			LPHash<String, String> LinearProbingHash = new LPHash<>(10007, scomp);
