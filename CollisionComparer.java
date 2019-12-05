@@ -12,17 +12,27 @@ public class CollisionComparer{
 		Random r = new Random();
         int i = 0;
         String rand;
+        //INV: i= i + 1 && X[0...i-1] is processed with random strings
+        	// && Y[0...i-1] is processed with random strings
         while(i < n) {
             rand = "" + (r.nextInt(10001)+1);
             //mutates rand to unique key of Stringed-digits from 1-10,000
             X.insert(rand, "element");
-            Y.insert(rand, "element");
-            i++;     }  }
+            //INV: X[0...i] is processed with random strings
+            //&& Y[0...i-1] is processed with random strings
+        	Y.insert(rand, "element");
+        	//INV: X[0...i] is processed with random strings
+        	// && Y[0...i] is processed with random strings
+            i++;    
+            //INV: i= i + 1 && X[0...i-1] is processed with random strings
+        	// && Y[0...i-1] is processed with random strings
+            
+        }  }
 	
 	//Purpose: Console Print-out Formatting.
 	public static String createLine(int item, String oldString) {
-		return(oldString + String.format("%10d", item));
-	}
+		return(oldString + String.format("%10d", item));	}
+	
 	public static void main(String[] args) {
 		
 		HashComparator<String> scomp = new StringComparator();
@@ -46,5 +56,6 @@ public class CollisionComparer{
 		System.out.println(Item);
 		System.out.println(Linear);
 		System.out.println(Double);
+		
 		
 	}}
